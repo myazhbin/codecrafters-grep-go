@@ -50,7 +50,7 @@ func matchLine(line []byte, pattern string) (bool, error) {
 	fmt.Fprintln(os.Stderr, "Logs from your program will appear here!")
 
 	// TODO: Uncomment the code below to pass the first stage
-	// ok = bytes.ContainsAny(line, pattern)
+	ok = bytes.ContainsAny(line, pattern)
 
 	return ok, nil
 }
