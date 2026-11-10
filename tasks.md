@@ -46,7 +46,7 @@ Stage list taken from the course sidebar; details are filled in from
 
 ### Multiple Matches
 
-- [ ] Task 14 — Print single match
+- [x] Task 14 — Print single match
 - [ ] Task 15 — Print multiple matches
 - [ ] Task 16 — Process multiple input lines
 
