@@ -62,7 +62,7 @@ Stage list taken from the course sidebar; details are filled in from
 
 - [ ] Task 22 — Search a single-line file
 - [ ] Task 23 — Search a multi-line file
-- [ ] Task 24 — Search multiple files
+- [x] Task 24 — Search multiple files
 - [ ] Task 25 — Recursive search
 
 ### Quantifiers
