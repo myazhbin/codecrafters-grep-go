@@ -47,33 +47,33 @@ Stage list taken from the course sidebar; details are filled in from
 ### Multiple Matches
 
 - [x] Task 14 — Print single match
-- [ ] Task 15 — Print multiple matches
-- [ ] Task 16 — Process multiple input lines
+- [x] Task 15 — Print multiple matches
+- [x] Task 16 — Process multiple input lines
 
 ### Highlighting
 
-- [ ] Task 17 — Highlight a single match
-- [ ] Task 18 — Highlight multiple matches
-- [ ] Task 19 — Highlight matches in multiple lines
-- [ ] Task 20 — Disable highlighting
-- [ ] Task 21 — Implement the auto color option
+- [x] Task 17 — Highlight a single match
+- [x] Task 18 — Highlight multiple matches
+- [x] Task 19 — Highlight matches in multiple lines
+- [x] Task 20 — Disable highlighting
+- [x] Task 21 — Implement the auto color option
 
 ### File Search
 
-- [ ] Task 22 — Search a single-line file
-- [ ] Task 23 — Search a multi-line file
+- [x] Task 22 — Search a single-line file
+- [x] Task 23 — Search a multi-line file
 - [x] Task 24 — Search multiple files
-- [ ] Task 25 — Recursive search
+- [x] Task 25 — Recursive search
 
 ### Quantifiers
 
-- [ ] Task 26 — Match zero or more times
-- [ ] Task 27 — Match exactly n times
-- [ ] Task 28 — Match at least n times
-- [ ] Task 29 — Match between n and m times
+- [x] Task 26 — Match zero or more times
+- [x] Task 27 — Match exactly n times
+- [x] Task 28 — Match at least n times
+- [x] Task 29 — Match between n and m times
 
 ### Backreferences
 
-- [ ] Task 30 — Single Backreference
-- [ ] Task 31 — Multiple Backreferences
-- [ ] Task 32 — Nested Backreferences (final task)
+- [x] Task 30 — Single Backreference
+- [x] Task 31 — Multiple Backreferences
+- [x] Task 32 — Nested Backreferences (final task)
