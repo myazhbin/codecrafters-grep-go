@@ -29,7 +29,7 @@ Stage list taken from the course sidebar; details are filled in from
 ### Base stages
 
 - [x] Task 2 — Match word characters
-- [ ] Task 3 — Positive Character Groups
+- [x] Task 3 — Positive Character Groups
 - [ ] Task 4 — Negative Character Groups
 - [ ] Task 5 — Combining Character Classes
 - [ ] Task 6 — Start of string anchor
