@@ -1,15 +1,12 @@
 package main
 
 import (
-	"bytes"
+	"bufio"
 	"fmt"
 	"io"
 	"os"
-	"unicode/utf8"
+	"strings"
 )
-
-// Ensures gofmt doesn't remove the "bytes" import above (feel free to remove this!)
-var _ = bytes.ContainsAny
 
 // Usage: echo <input_text> | your_program.sh -E <pattern>
 func main() {
@@ -20,37 +17,55 @@ func main() {
 
 	pattern := os.Args[2]
 
-	line, err := io.ReadAll(os.Stdin) // assume we're only dealing with a single line
+	input, err := io.ReadAll(os.Stdin)
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "error: read input text: %v\n", err)
 		os.Exit(2)
 	}
 
-	ok, err := matchLine(line, pattern)
+	out := bufio.NewWriter(os.Stdout)
+	matched, err := grep(string(input), pattern, out)
+	out.Flush()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "error: %v\n", err)
 		os.Exit(2)
 	}
 
-	if !ok {
+	if !matched {
 		os.Exit(1)
 	}
 
 	// default exit code is 0 which means success
 }
 
-func matchLine(line []byte, pattern string) (bool, error) {
-	if utf8.RuneCountInString(pattern) != 1 {
-		return false, fmt.Errorf("unsupported pattern: %q", pattern)
+// grep writes every line of input that matches pattern to out and reports
+// whether at least one line matched.
+func grep(input, pattern string, out io.Writer) (bool, error) {
+	re, err := Compile(pattern)
+	if err != nil {
+		return false, fmt.Errorf("invalid pattern %q: %v", pattern, err)
 	}
 
-	var ok bool
+	lines := strings.Split(input, "\n")
+	if len(lines) > 1 && lines[len(lines)-1] == "" {
+		lines = lines[:len(lines)-1] // trailing newline, not an extra empty line
+	}
 
-	// You can use print statements as follows for debugging, they'll be visible when running tests.
-	fmt.Fprintln(os.Stderr, "Logs from your program will appear here!")
+	matched := false
+	for _, line := range lines {
+		if re.Match(line) {
+			matched = true
+			fmt.Fprintln(out, line)
+		}
+	}
+	return matched, nil
+}
 
-	// TODO: Uncomment the code below to pass the first stage
-	ok = bytes.ContainsAny(line, pattern)
-
-	return ok, nil
+// matchLine reports whether line matches pattern.
+func matchLine(line []byte, pattern string) (bool, error) {
+	re, err := Compile(pattern)
+	if err != nil {
+		return false, err
+	}
+	return re.Match(string(line)), nil
 }
