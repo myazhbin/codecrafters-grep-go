@@ -14,7 +14,7 @@ Status: `[ ]` todo, `[x]` implemented, Go tests pass, `codecrafters submit` pass
 
 https://app.codecrafters.io/courses/grep/stages/oq2?repo=5b165d03-8a78-495a-ad26-a44a86829e57
 
-- [ ] Add support for the digit (`\d`) character class.
+- [x] Add support for the digit (`\d`) character class.
   - `\d` matches any single digit character (0-9).
   - `\d` should match `3` and `foo101`; should not match `c` or `Art`.
   - Tester runs: `echo -n "apple123" | ./your_program.sh -E "\d"`
