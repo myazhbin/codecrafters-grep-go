@@ -30,19 +30,19 @@ Stage list taken from the course sidebar; details are filled in from
 
 - [x] Task 2 — Match word characters
 - [x] Task 3 — Positive Character Groups
-- [ ] Task 4 — Negative Character Groups
-- [ ] Task 5 — Combining Character Classes
-- [ ] Task 6 — Start of string anchor
-- [ ] Task 7 — End of string anchor
-- [ ] Task 8 — Match one or more times
-- [ ] Task 9 — Match zero or one times
-- [ ] Task 10 — Wildcard
-- [ ] Task 11 — Alternation
+- [x] Task 4 — Negative Character Groups
+- [x] Task 5 — Combining Character Classes
+- [x] Task 6 — Start of string anchor
+- [x] Task 7 — End of string anchor
+- [x] Task 8 — Match one or more times
+- [x] Task 9 — Match zero or one times
+- [x] Task 10 — Wildcard
+- [x] Task 11 — Alternation
 
 ### Printing Matches
 
-- [ ] Task 12 — Print a single matching line
-- [ ] Task 13 — Print multiple matching lines
+- [x] Task 12 — Print a single matching line
+- [x] Task 13 — Print multiple matching lines
 
 ### Multiple Matches
 

@@ -430,10 +430,11 @@ func (m *matcher) matchRepeat(n *node, count, pos int, k func(int) bool) bool {
 	return count >= n.min && k(pos)
 }
 
-// Find returns the [start, end) rune offsets of the leftmost match in text.
-func (re *Regex) Find(text []rune) (start, end int, ok bool) {
+// FindFrom returns the [start, end) rune offsets of the leftmost match in
+// text that begins at or after rune offset from.
+func (re *Regex) FindFrom(text []rune, from int) (start, end int, ok bool) {
 	m := &matcher{text: text, caps: make([][2]int, re.groups+1)}
-	for start = 0; start <= len(text); start++ {
+	for start = from; start <= len(text); start++ {
 		for i := range m.caps {
 			m.caps[i] = [2]int{-1, -1}
 		}
@@ -442,6 +443,29 @@ func (re *Regex) Find(text []rune) (start, end int, ok bool) {
 		}
 	}
 	return 0, 0, false
+}
+
+// Find returns the [start, end) rune offsets of the leftmost match in text.
+func (re *Regex) Find(text []rune) (start, end int, ok bool) {
+	return re.FindFrom(text, 0)
+}
+
+// FindAll returns every non-overlapping, non-empty match in text, left to right.
+func (re *Regex) FindAll(text []rune) [][2]int {
+	var matches [][2]int
+	for from := 0; from <= len(text); {
+		start, end, ok := re.FindFrom(text, from)
+		if !ok {
+			break
+		}
+		if end == start {
+			from = start + 1 // skip empty matches
+			continue
+		}
+		matches = append(matches, [2]int{start, end})
+		from = end
+	}
+	return matches
 }
 
 // Match reports whether the pattern matches anywhere in text.
